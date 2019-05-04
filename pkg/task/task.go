@@ -39,6 +39,9 @@ func (t *Task) SetDue(date string) *Task {
 	// Parse the provided date
 	d, err := time.Parse(timeFormat, date)
 	switch {
+	// Set DueDate to today's date if `today` specified
+	case strings.EqualFold(date, "today"):
+		t.DueDate = time.Now().Format(timeFormat)
 	// Set DueDate to tomorrow's date if `tomorrow` specified
 	case strings.EqualFold(date, "tomorrow"):
 		t.DueDate = time.Now().AddDate(0, 0, 1).Format(timeFormat)
