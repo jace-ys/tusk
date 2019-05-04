@@ -1,7 +1,7 @@
 package main
 
 import (
-	"github.com/jace-ys/gophercises/7_cli_task_manager/cmd"
+	"github.com/jace-ys/taskar/cmd"
 )
 
 func main() {

@@ -1,24 +1,32 @@
 TARGET = taskar
 SOURCE = main.go
-
-.PHONY: all test build execute format clean
+DBPATH = ${HOME}/go/data/taskar
 
 all: format build
 
-test:
-	@echo "==> Running tests.."
-	go test ./... -v
+install: main.go
+	@echo "==> Setting up database"
+	mkdir -p ${DBPATH}
+	@echo "==> Installing Taskar.."
+	go install
+	@echo "==> Done!"
 
-build:
+build: main.go
 	@echo "==> Building from source.."
 	go build -o ${TARGET} ${SOURCE}
+
+.PHONY: all test format clean
 
 format:
 	@echo "==> Formatting code.."
 	gofmt -w .
 
+test:
+	@echo "==> Running tests.."
+	go test ./... -v
+
 clean:
 	@echo "==> Cleaning up.."
 	go mod tidy
 	go clean
-	rm data/tasks.db
+	rm -rf ${DBPATH}
