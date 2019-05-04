@@ -87,7 +87,7 @@ var watchListCmd = &cobra.Command{
 
 var watchCountCmd = &cobra.Command{
 	Use:   "count",
-	Short: "Count the number of watched task on your to-do list",
+	Short: "Count the number of watched tasks on your to-do list",
 	Args:  cobra.ExactArgs(0),
 	Run: func(cmd *cobra.Command, args []string) {
 		// Find all tasks
