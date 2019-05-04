@@ -2,6 +2,7 @@ package cmd
 
 import (
 	"fmt"
+	"os"
 
 	"github.com/spf13/cobra"
 )
@@ -26,6 +27,10 @@ var removeCmd = &cobra.Command{
 			if err != nil {
 				exit(err)
 			}
+		}
+		err = os.Remove(dbPath)
+		if err != nil {
+			exit(err)
 		}
 		fmt.Println("Deleted all tasks on your to-do list")
 	},

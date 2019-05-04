@@ -12,9 +12,9 @@ import (
 	"github.com/jace-ys/taskar/pkg/task"
 )
 
-var taskFilepath = "go/data/taskar/tasks.db"
+var taskFile = "go/data/taskar/tasks.db"
+var dbPath string
 var taskManager *manager.TaskManager
-var err error
 
 var rootCmd = &cobra.Command{
 	Use:     "taskar",
@@ -23,8 +23,8 @@ var rootCmd = &cobra.Command{
 }
 
 func Execute() {
-	home, _ := homedir.Dir()
-	dbPath := filepath.Join(home, taskFilepath)
+	home, err := homedir.Dir()
+	dbPath = filepath.Join(home, taskFile)
 	// Create taskManager and setup database
 	taskManager, err = manager.New(dbPath)
 	if err != nil {
