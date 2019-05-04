@@ -28,13 +28,13 @@ func (tm *TaskManager) Filter(tasks task.TaskSlice, opts FilterOptions) task.Tas
 	// Use a map of pointers to structs to hold unique values
 	filterMap := make(map[*task.Task]struct{})
 	for _, t := range tasks {
-		if nameContains(t.Name, opts.Name) {
-			filterMap[t] = struct{}{}
+		// Add task to filterMap if it passes all filters
+		keep := []bool{
+			ifContains(t.Name, opts.Name),
+			ifExact(t.Category, opts.Category),
+			ifExact(t.DueDate, opts.DueDate),
 		}
-		if strings.EqualFold(t.Category, opts.Category) {
-			filterMap[t] = struct{}{}
-		}
-		if strings.EqualFold(t.DueDate, opts.DueDate) {
+		if allTrue(keep) {
 			filterMap[t] = struct{}{}
 		}
 	}
@@ -45,10 +45,35 @@ func (tm *TaskManager) Filter(tasks task.TaskSlice, opts FilterOptions) task.Tas
 	return filtered
 }
 
-// Check if str contains substr
-func nameContains(str, substr string) bool {
-	if substr != "" && strings.Contains(strings.ToLower(str), strings.ToLower(substr)) {
-		return true
+func allTrue(bools []bool) bool {
+	for _, v := range bools {
+		if !v {
+			return false
+		}
 	}
-	return false
+	return true
+}
+
+func ifContains(str, substr string) bool {
+	switch {
+	// Return true if substr equals empty string
+	case substr == "":
+		fallthrough
+	case strings.Contains(strings.ToLower(str), strings.ToLower(substr)):
+		return true
+	default:
+		return false
+	}
+}
+
+func ifExact(str, substr string) bool {
+	switch {
+	// Return true if substr equals empty string
+	case substr == "":
+		fallthrough
+	case strings.EqualFold(str, substr):
+		return true
+	default:
+		return false
+	}
 }

@@ -10,9 +10,9 @@ import (
 var findFlags manager.FilterOptions
 
 func init() {
-	findCmd.Flags().StringVar(&findFlags.Name, "name", "", "Filter tasks by name")
-	findCmd.Flags().StringVar(&findFlags.Category, "tag", "", "Filter tasks by category")
-	findCmd.Flags().StringVar(&findFlags.DueDate, "due", "", "Filter tasks by due date")
+	findCmd.Flags().StringVarP(&findFlags.Name, "name", "n", "", "Filter tasks by name")
+	findCmd.Flags().StringVarP(&findFlags.Category, "tag", "t", "", "Filter tasks by category")
+	findCmd.Flags().StringVarP(&findFlags.DueDate, "due", "d", "", "Filter tasks by due date")
 	rootCmd.AddCommand(findCmd)
 }
 
