@@ -8,17 +8,17 @@ import (
 	homedir "github.com/mitchellh/go-homedir"
 	"github.com/spf13/cobra"
 
-	"github.com/jace-ys/taskar/pkg/manager"
-	"github.com/jace-ys/taskar/pkg/task"
+	"github.com/jace-ys/tusk/pkg/manager"
+	"github.com/jace-ys/tusk/pkg/task"
 )
 
-var taskFile = "go/data/taskar/tasks.db"
+var taskFile = "go/data/tusk/tasks.db"
 var dbPath string
 var taskManager *manager.TaskManager
 
 var rootCmd = &cobra.Command{
-	Use:     "taskar",
-	Short:   "Taskar is a CLI for managing your to-do list",
+	Use:     "tusk",
+	Short:   "Tusk is a CLI for managing your to-do list",
 	Version: "0.1",
 }
 

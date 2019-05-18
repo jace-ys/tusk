@@ -3,7 +3,7 @@ package manager
 import (
 	"strings"
 
-	"github.com/jace-ys/taskar/pkg/task"
+	"github.com/jace-ys/tusk/pkg/task"
 )
 
 type FilterOptions struct {

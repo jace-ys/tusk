@@ -6,7 +6,7 @@ import (
 
 	"github.com/spf13/cobra"
 
-	"github.com/jace-ys/taskar/pkg/task"
+	"github.com/jace-ys/tusk/pkg/task"
 )
 
 var addFlags struct {

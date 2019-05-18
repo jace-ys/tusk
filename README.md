@@ -1,20 +1,20 @@
 [![Build Status][ci-build]][ci-status]
 
-[ci-build]:	https://img.shields.io/travis/com/jace-ys/taskar/master.svg?style=for-the-badge&logo=travis
-[ci-status]: https://travis-ci.com/jace-ys/taskar
+[ci-build]:	https://img.shields.io/travis/com/jace-ys/tusk-cli/master.svg?style=for-the-badge&logo=travis
+[ci-status]: https://travis-ci.com/jace-ys/tusk-cli
 
-# Taskar
+# Tusk
 
 A command-line interface for managing your to-do list.
 
 ## Installation
 
-Ensure Go (version >1.11) is installed and that your $GOPATH/bin is added to $PATH before installing Taskar.
+Ensure Go (version >1.11) is installed and that your $GOPATH/bin is added to $PATH before installing Tusk.
 
-Clone the repository, create the database path, and install the Taskar binary using the following commands:
+Clone the repository, create the database path, and install the Tusk binary using the following commands:
 
 ```
-git clone https://github.com/jace-ys/taskar
+git clone https://github.com/jace-ys/tusk-cli
 make install
 ```
 
@@ -24,7 +24,7 @@ List of commands:
 
 ```
 Usage:
-  taskar [command]
+  tusk [command]
 
 Available Commands:
   add         Add a new task to your to-do list
@@ -44,34 +44,34 @@ Available Commands:
   watch list  Display all watched tasks on your to-do list
 
 Flags:
-  -h, --help      help for taskar
-      --version   version for taskar
+  -h, --help      help for tusk
+      --version   version for tusk
 
-Use "taskar [command] --help" for more information about a command.
+Use "tusk [command] --help" for more information about a command.
 ```
 
 ## Custom Zsh Prompt
 
-A sample [.zshrc](https://github.com/jace-ys/taskar/blob/master/zsh/powerlevel9k/.zshrc) file for the [powerlevel9k](https://github.com/bhilburn/powerlevel9k) zsh theme has been included.
+A sample [.zshrc](https://github.com/jace-ys/tusk-cli/blob/master/zsh/powerlevel9k/.zshrc) file for the [powerlevel9k](https://github.com/bhilburn/powerlevel9k) zsh theme has been included.
 
-Once Taskar is installed, add the following lines to your .zshrc file to add a custom prompt to your terminal:
+Once Tusk is installed, add the following lines to your .zshrc file to add a custom prompt to your terminal:
 
 ```
 POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(tasks)
 
 # tasks
-POWERLEVEL9K_CUSTOM_TASKS="prompt_taskar"
+POWERLEVEL9K_CUSTOM_TASKS="prompt_tusk"
 POWERLEVEL9K_CUSTOM_TASKS_FOREGROUND="045"
 POWERLEVEL9K_CUSTOM_TASKS_BACKGROUND="none"
 
 # custom prompt that displays the number of watched tasks / total number of tasks
 # eg. 3/5 task(s)
-prompt_taskar() {
-  if ! [ -x "$(command -v taskar)" ]; then
+prompt_tusk() {
+  if ! [ -x "$(command -v tusk)" ]; then
     exit 1
   else
-    watch=$(taskar watch count)
-    tasks=$(taskar list count)
+    watch=$(tusk watch count)
+    tasks=$(tusk list count)
     if [[ $watch =~ ^[0-9]+$ ]] && [[ $tasks =~ ^[0-9]+$ ]] ; then
       echo -e "$watch/$tasks task(s) \uf5c0"
     fi

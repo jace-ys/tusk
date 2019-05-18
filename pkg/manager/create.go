@@ -5,7 +5,7 @@ import (
 
 	"github.com/boltdb/bolt"
 
-	"github.com/jace-ys/taskar/pkg/task"
+	"github.com/jace-ys/tusk/pkg/task"
 )
 
 func (tm *TaskManager) Create(t *task.Task) error {

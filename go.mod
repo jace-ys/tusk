@@ -1,4 +1,4 @@
-module github.com/jace-ys/taskar
+module github.com/jace-ys/tusk
 
 go 1.12
 

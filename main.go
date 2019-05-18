@@ -1,7 +1,7 @@
 package main
 
 import (
-	"github.com/jace-ys/taskar/cmd"
+	"github.com/jace-ys/tusk/cmd"
 )
 
 func main() {

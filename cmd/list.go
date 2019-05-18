@@ -5,7 +5,7 @@ import (
 
 	"github.com/spf13/cobra"
 
-	"github.com/jace-ys/taskar/pkg/printer"
+	"github.com/jace-ys/tusk/pkg/printer"
 )
 
 func init() {

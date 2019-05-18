@@ -7,7 +7,7 @@ import (
 
 	"github.com/boltdb/bolt"
 
-	"github.com/jace-ys/taskar/pkg/task"
+	"github.com/jace-ys/tusk/pkg/task"
 )
 
 var taskBucket = []byte("Tasks")

@@ -5,7 +5,7 @@ import (
 
 	"github.com/olekukonko/tablewriter"
 
-	"github.com/jace-ys/taskar/pkg/task"
+	"github.com/jace-ys/tusk/pkg/task"
 )
 
 func PrintTable(tasks task.TaskSlice) {

@@ -1,13 +1,13 @@
-TARGET = taskar
+TARGET = tusk
 SOURCE = main.go
-DBPATH = ${HOME}/go/data/taskar
+DBPATH = ${HOME}/go/data/tusk
 
 all: format build
 
 install: main.go
 	@echo "==> Setting up database"
 	mkdir -p ${DBPATH}
-	@echo "==> Installing Taskar.."
+	@echo "==> Installing Tusk.."
 	go install
 	@echo "==> Done!"
 
