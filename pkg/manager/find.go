@@ -33,5 +33,6 @@ func (tm *TaskManager) FindAll() (task.TaskSlice, error) {
 	if err != nil {
 		return t, err
 	}
+	sortAscending(t)
 	return t, nil
 }

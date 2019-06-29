@@ -42,6 +42,7 @@ func (tm *TaskManager) Filter(tasks task.TaskSlice, opts FilterOptions) task.Tas
 	for k, _ := range filterMap {
 		filtered = append(filtered, k)
 	}
+	sortAscending(filtered)
 	return filtered
 }
 

@@ -1,8 +1,9 @@
 package manager
 
 import (
-	"encoding/binary"
 	"encoding/json"
+	"sort"
+	"strconv"
 	"time"
 
 	"github.com/boltdb/bolt"
@@ -36,6 +37,14 @@ func New(dbFilepath string) (*TaskManager, error) {
 	return taskManager, createRootBkt
 }
 
+func sortAscending(tasks task.TaskSlice) {
+	sort.Slice(tasks, func(i, j int) bool {
+		a, _ := strconv.Atoi(tasks[i].ID)
+		b, _ := strconv.Atoi(tasks[j].ID)
+		return a < b
+	})
+}
+
 // Helper functions to encode/decode between struct and []byte
 // Needed for storing structs in Bolt
 func encode(t *task.Task) []byte {
@@ -53,11 +62,4 @@ func decode(b []byte) *task.Task {
 		return nil
 	}
 	return t
-}
-
-// Returns an 8-byte big endian representation of i
-func itob(i int) []byte {
-	b := make([]byte, 8)
-	binary.BigEndian.PutUint64(b, uint64(i))
-	return b
 }

@@ -15,7 +15,7 @@ build: main.go
 	@echo "==> Building from source.."
 	go build -o ${TARGET} ${SOURCE}
 
-.PHONY: all test format clean
+.PHONY: all format test clean
 
 format:
 	@echo "==> Formatting code.."
