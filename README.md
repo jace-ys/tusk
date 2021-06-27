@@ -1,8 +1,3 @@
-[![Build Status][ci-build]][ci-status]
-
-[ci-build]:	https://img.shields.io/travis/com/jace-ys/tusk-cli/master.svg?style=for-the-badge&logo=travis
-[ci-status]: https://travis-ci.com/jace-ys/tusk-cli
-
 # Tusk
 
 A command-line interface for managing your to-do list.
@@ -14,7 +9,7 @@ Ensure Go (version >1.11) is installed and that your $GOPATH/bin is added to $PA
 Clone the repository, create the database path, and install the Tusk binary using the following commands:
 
 ```
-git clone https://github.com/jace-ys/tusk-cli
+git clone https://github.com/jace-ys/tusk
 make install
 ```
 
